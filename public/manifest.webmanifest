@@ -1,0 +1,18 @@
+{
+  "name": "WildQuest — Touch Grass",
+  "short_name": "WildQuest",
+  "description": "AI outdoor missions that get people outside — then get out of the way.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5ed",
+  "theme_color": "#243f1d",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/leaf-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

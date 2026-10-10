@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: "Fraunces", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f6f3e9;
+    color: #142312;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.dark body {
+    background-color: #0b120a;
+    color: #edebe1;
+  }
+
+  input, textarea, select {
+    color: #142312;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #4a5d43;
+    opacity: 0.85;
+  }
+
+  html.dark input, html.dark textarea, html.dark select {
+    color: #edebe1;
+  }
+
+  html.dark input::placeholder, html.dark textarea::placeholder {
+    color: #8da486;
+    opacity: 0.85;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Organic linen & field paper texture (Light mode) */
+.paper-texture {
+  background-color: #f6f3e9;
+  background-image: 
+    radial-gradient(#d3cbb5 0.75px, transparent 0.75px),
+    radial-gradient(#d3cbb5 0.75px, #f6f3e9 0.75px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Field journal dark canvas texture (Dark mode) */
+html.dark .paper-texture {
+  background-color: #0b120a;
+  background-image: 
+    radial-gradient(#1f301a 0.85px, transparent 0.85px),
+    radial-gradient(#1f301a 0.85px, #0b120a 0.85px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Field guide vintage map grid */
+.topo-grid {
+  background-image: linear-gradient(to right, rgba(82, 110, 68, 0.06) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(82, 110, 68, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+html.dark .topo-grid {
+  background-image: linear-gradient(to right, rgba(139, 195, 74, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(139, 195, 74, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dark canopy forest atmospheric background */
+.forest-canopy-bg {
+  background: radial-gradient(circle at 50% 20%, #1a2f17 0%, #101c0f 50%, #080f08 100%);
+}
+
+html.dark .forest-canopy-bg {
+  background: radial-gradient(circle at 50% 20%, #132411 0%, #0b1509 50%, #050a05 100%);
+}
+
+/* Physical field card deckle edge effect */
+.field-card-deckle {
+  box-shadow: 
+    0 1px 3px rgba(27, 43, 21, 0.07),
+    0 6px 16px rgba(27, 43, 21, 0.05),
+    0 20px 40px rgba(27, 43, 21, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.field-card-deckle:hover {
+  transform: translateY(-3px) scale(1.002);
+  box-shadow: 
+    0 4px 8px rgba(27, 43, 21, 0.08),
+    0 12px 28px rgba(27, 43, 21, 0.1),
+    0 28px 56px rgba(27, 43, 21, 0.08);
+}
+
+html.dark .field-card-deckle {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 24px 48px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .field-card-deckle:hover {
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    0 14px 32px rgba(0, 0, 0, 0.45),
+    0 32px 64px rgba(0, 0, 0, 0.5);
+}
+
+/* Interactive 3D Perspective Card (Techfest style) */
+.tech-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-card:hover {
+  transform: translateY(-4px) rotateX(1.5deg) rotateY(-1deg);
+}
+
+/* Magnetic interactive button feedback */
+.btn-magnetic {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-1.5px) scale(1.015);
+}
+
+.btn-magnetic:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* Stamped ink seal effect */
+.ink-stamp {
+  border: 2px dashed rgba(64, 98, 48, 0.6);
+  transform: rotate(-1.5deg);
+}
+
+html.dark .ink-stamp {
+  border: 2px dashed rgba(139, 195, 74, 0.6);
+}
+
+/* Subtle breathing pulse for outdoor mode */
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.07);
+    opacity: 0.35;
+  }
+}
+
+.animate-breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+/* Slow floating particle / leaf movement */
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+@keyframes floatSlowReverse {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.animate-float-reverse {
+  animation: floatSlowReverse 7s ease-in-out infinite;
+}
+
+/* Smooth reveal animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: fadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom scrollbar for minimalist journal view */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd3be;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ab38b;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #253820;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3c5a34;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WildQuest — AI missions that get people outside, then get out of the way</title>
+    <meta name="description" content="AI missions that get people outside — then get out of the way. Built for Hacktoberfest 2026 Touch Grass challenge with open-weight Gemma." />
+    <meta property="og:title" content="WildQuest — AI missions that get people outside, then get out of the way" />
+    <meta property="og:description" content="AI missions that get people outside — then get out of the way. Built for Hacktoberfest 2026 Touch Grass challenge with open-weight Gemma." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#233a1e" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/leaf-icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              for (var r of regs) { r.unregister(); }
+            }).catch(function() {});
+          }
+          if ('caches' in window) {
+            caches.keys().then(function(keys) {
+              keys.forEach(function(k) { caches.delete(k); });
+            }).catch(function() {});
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-[#f7f5ed] text-[#1c2619] antialiased selection:bg-[#345c2c] selection:text-[#f7f5ed]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
